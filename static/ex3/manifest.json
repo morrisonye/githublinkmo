@@ -1,0 +1,21 @@
+{
+    "name": "morrison Cafe",
+    "short_name": "morrison咖啡館APP",
+    "start_url": "https://flask-bs4-test2.herokuapp.com/ex1/index.html",
+    "display": "standalone",
+    "background_color": "#EEEEEE",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "img/cafe_600.jpg",
+            "type": "image/jpg",
+            "sizes": "600x600"
+        },
+        {
+            "src": "img/cafe_16.jpg",
+            "type": "image/jpg",
+            "sizes": "16x16"
+        }
+
+    ]
+}
