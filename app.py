@@ -157,8 +157,9 @@ def aqi_chart_24h():
     # plt.xlabel('時間')
     plt.title('AQI指數', fontproperties = font)
     plt.xlabel('時間', fontproperties = font)
-    plt.xticks(rotation=90)
+    plt.xticks(rotation=45)
     plt.savefig('img.png')
+    plt.rcParams["figure.figsize"] = (8, 8)
     plt.close()
     ##
     return send_file('img.png', mimetype='image/png')
