@@ -136,7 +136,7 @@ def aqi_chart_24h():
     print(sql_cmd)
     resultProxy=my_db.execute( sql_cmd )
     data = resultProxy.fetchall()
-    # font = FontProperties(fname=r"NotoSansTC-Regular.otf", size=14)
+    font = FontProperties(fname=r"./NotoSansTC-Regular.otf", size=14)
 
     aqi_list = list()
     time_list = list()
@@ -148,12 +148,14 @@ def aqi_chart_24h():
     # plot
     plt.plot(time_list,aqi_list,'b-o')
     plt.grid()
-    plt.title('AQI指數')
-    plt.xlabel('時間')
-    # plt.title('AQI指數', fontproperties = font)
-    # plt.xlabel('時間', fontproperties = font)
+    # plt.title('AQI指數')
+    # plt.xlabel('時間')
+    plt.title('AQI指數', fontproperties = font)
+    plt.xlabel('時間', fontproperties = font)
+    plt.xticks(rotation=90)
     plt.savefig('img.png')
     plt.close()
+    ##
     return send_file('img.png', mimetype='image/png')
 
 #####################
