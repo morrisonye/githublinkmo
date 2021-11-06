@@ -6,3 +6,5 @@ geocoder
 apscheduler
 sqlalchemy
 PyMySQL
+matplotlib
+FontProperties
