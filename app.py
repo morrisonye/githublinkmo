@@ -13,6 +13,8 @@ import requests
 import csv
 import folium
 import geocoder
+import pandas as pd
+
 
 from apscheduler.schedulers.background import BackgroundScheduler
 import os
@@ -142,11 +144,13 @@ def aqi_chart_24h():
     time_list = list()
     for item in data:
         aqi_list.append( float(item['aqi']) )
+        time_list.append( item['time'][5:13] )
     
-    for item in data:
-        time_list.append( item['time'] )
     # plot
-    plt.plot(time_list,aqi_list,'b-o')
+    x = pd.to_datetime(time_list)               #轉換為日期，否則下面的日期設定不會生效
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d:%H'))  #設定x軸主刻度顯示格式（日期）
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+    plt.plot(x,aqi_list,'b-o')
     plt.grid()
     # plt.title('AQI指數')
     # plt.xlabel('時間')

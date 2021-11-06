@@ -7,3 +7,4 @@ apscheduler
 sqlalchemy
 PyMySQL
 matplotlib
+pandas
